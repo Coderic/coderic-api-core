@@ -1,0 +1,58 @@
+{
+  "name": "@coderic/api-core",
+  "version": "0.1.0",
+  "description": "Shared Hono API utilities for Cloudflare Pages and Node",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./hono": {
+      "types": "./dist/hono/index.d.ts",
+      "import": "./dist/hono/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "hono": [
+        "dist/hono/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@coderic/acl": "^0.1.0"
+  },
+  "peerDependencies": {
+    "hono": "^4.0.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250317.0",
+    "hono": "^4.1.5",
+    "typescript": "^6.0.3",
+    "vitest": "^3.2.4"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Coderic/coderic-api-core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Coderic/coderic-api-core/issues"
+  },
+  "homepage": "https://github.com/Coderic/coderic-api-core#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  }
+}
